@@ -12,32 +12,23 @@ export default class Calendar extends Component{
         if(this.selectionEnabled ){
             if((index == indexStart)){
                 this.selectionEnabled = false;
-                setRange({
-                    selectionStart:0,
-                    selectionEnd:0
-                });
+                setRange();
             }else{
                 this.selectionEnabled = false;
-                setRange({
-                    selectionStart:this.props.indexStart,
-                    selectionEnd:index
-                });
+                setRange(this.props.indexStart, index);
             }
         }else{
             if(index == indexEnd){
                 this.selectionEnabled = true;
             }else{
                 this.selectionEnabled = true;
-                setRange({selectionStart:index});
+                setRange(index);
             }
         }
     }
     mouseOver(index){
         if(this.selectionEnabled){
-            this.props.setRange({
-                selectionStart: this.props.indexStart,
-                selectionEnd: index
-            });
+            this.props.setRange(this.props.indexStart, index);
         }
     }
     componentWillUpdate(nextProps){
@@ -54,7 +45,7 @@ export default class Calendar extends Component{
         let time = date.getTime();
         let {indexEnd, indexStart} = this.props;
         let dayClass = (time > indexStart && time < indexEnd) ? 'selected' : '';
-        dayClass += (time < indexStart || time < Date.now())?' out--range':'';
+        dayClass += ( date.getDate() < new Date().getDate())?' out--range':'';
         dayClass += (time == indexStart && indexEnd > indexStart) ? ' sel--start' : '';
         dayClass += (time == indexEnd && time > indexStart) ? ' sel--end' : '';
         dayClass += (date.getMonth() == month)?' calendar__day':' calendar__day dis';

@@ -22,11 +22,8 @@ export default class APP extends Component {
         date.setMonth(date.getMonth() + 1);
         this.setState({date:date.getTime()});
     }
-    setRange({selectionStart, selectionEnd}){
-        this.setState({
-            selectionStart:selectionStart ? selectionStart : 0,
-            selectionEnd:selectionEnd ? selectionEnd : 0
-        });
+    setRange(selectionStart = 0, selectionEnd = 0){
+        this.setState({selectionStart, selectionEnd});
     }
     render(){
        let {date, selectionStart, selectionEnd} = this.state;
@@ -36,7 +33,6 @@ export default class APP extends Component {
            <Calendar date={date}
                      indexStart = {selectionStart}
                      indexEnd = {selectionEnd}
-                     nextMonth = {::this.nextMonth}
                      setRange = {::this.setRange}
                      />
        </div>)
