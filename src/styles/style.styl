@@ -79,7 +79,7 @@ body
     .calendar__day-name
       min-width $cellWidth
   .calendar__wrap
-    max-height 302px
+    max-height 301px
     overflow hidden
     border-top 1px solid #efefef
     border-bottom 1px solid #efefef
@@ -93,6 +93,7 @@ body
     &.animate--backward
       animation list-backward .3s forwards
     .calendar__day
+      z-index -2
       min-width $cellWidth
       padding 0
       text-align center

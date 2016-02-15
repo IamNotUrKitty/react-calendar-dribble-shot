@@ -6,6 +6,7 @@ export default class Calendar extends Component{
         this.selectionEnaled = false;
         this.animationDirection = "forward";
         this.shortMonthNames = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec']
+        this.currentDate = new Date();
     }
     handleClick(index){
         let {setRange, indexStart, indexEnd} = this.props;
@@ -43,9 +44,10 @@ export default class Calendar extends Component{
     }
     getDay(date, key, month){
         let time = date.getTime();
+        let currentDate = this.currentDate;
         let {indexEnd, indexStart} = this.props;
         let dayClass = (time > indexStart && time < indexEnd) ? 'selected' : '';
-        dayClass += ( date.getDate() < new Date().getDate())?' out--range':'';
+        dayClass += ( date < currentDate.setHours(0)) ?' out--range':'';
         dayClass += (time == indexStart && indexEnd > indexStart) ? ' sel--start' : '';
         dayClass += (time == indexEnd && time > indexStart) ? ' sel--end' : '';
         dayClass += (date.getMonth() == month)?' calendar__day':' calendar__day dis';
