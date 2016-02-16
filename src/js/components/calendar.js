@@ -5,10 +5,13 @@ export default class Calendar extends Component{
         super(props);
         this.selectionEnaled = false;
         this.animationDirection = "forward";
-        this.shortMonthNames = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec']
+        this.shortMonthNames = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'];
         this.currentDate = new Date();
     }
     handleClick(index){
+        if(new Date(index) < this.currentDate){
+            return false;
+        }
         let {setRange, indexStart, indexEnd} = this.props;
         if(this.selectionEnabled ){
             if((index == indexStart)){
@@ -28,7 +31,7 @@ export default class Calendar extends Component{
         }
     }
     mouseOver(index){
-        if(this.selectionEnabled){
+        if(this.selectionEnabled && (index >= this.props.indexStart)){
             this.props.setRange(this.props.indexStart, index);
         }
     }
