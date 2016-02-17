@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 
 export default class Header extends Component {
     constructor(props) {
@@ -28,3 +28,6 @@ export default class Header extends Component {
         </div>)
     }
 }
+Header.propTypes = {
+  date:PropTypes.number.isRequired
+};

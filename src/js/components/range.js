@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 
 export default class Range extends Component {
     constructor(props) {
@@ -55,3 +55,7 @@ export default class Range extends Component {
         </div>)
     }
 }
+Range.propTypes = {
+  dateFrom:PropTypes.number,
+  dateTo:PropTypes.number
+};

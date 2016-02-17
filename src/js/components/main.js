@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import Header from './header'
 import Calendar from './calendar'
 import Range from './range'
@@ -40,3 +40,8 @@ export default class RangePicker extends Component {
        </div>)
     }
 }
+
+RangePicker.propTypes = {
+  nameFrom: PropTypes.string.isRequired,
+  nameTo: PropTypes.string.isRequired
+};

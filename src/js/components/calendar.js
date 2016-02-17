@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 
 export default class Calendar extends Component{
     constructor(props){
@@ -93,3 +93,10 @@ export default class Calendar extends Component{
         </div>)
     }
 }
+
+Calendar.propTypes = {
+    setRange:PropTypes.func.isRequired,
+    indexStart:PropTypes.number,
+    indexEnd: PropTypes.number,
+    date:PropTypes.number.isRequired
+};
