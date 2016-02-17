@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import APP from './components/main'
-
+import RangePicker from './components/main'
 require('../styles/style.styl');
 
-ReactDom.render(<APP />, document.querySelector('#app'));
+ReactDom.render(<RangePicker nameFrom="dateFrom" nameTo="dateTo"/>, document.querySelector('#app'));

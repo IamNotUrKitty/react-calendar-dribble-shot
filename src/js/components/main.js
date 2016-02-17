@@ -3,7 +3,7 @@ import Header from './header'
 import Calendar from './calendar'
 import Range from './range'
 
-export default class APP extends Component {
+export default class RangePicker extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -28,6 +28,8 @@ export default class APP extends Component {
     render(){
        let {date, selectionStart, selectionEnd} = this.state;
        return (<div className="calendar">
+           <input type="hidden" name={this.props.nameFrom} value={this.state.selectionStart}/>
+           <input type="hidden" name={this.props.nameTo} value={this.state.selectionEnd}/>
            <Range dateFrom={selectionStart} dateTo={selectionEnd}/>
            <Header date={date} prevMonth={::this.prevMonth} nextMonth={::this.nextMonth}/>
            <Calendar date={date}
