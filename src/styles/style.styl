@@ -93,7 +93,6 @@ body
     &.animate--backward
       animation list-backward .3s forwards
     .calendar__day
-      z-index -2
       min-width $cellWidth
       padding 0
       text-align center
@@ -106,13 +105,18 @@ body
       &.dis
         background #fcf9fc
         border-bottom 1px solid #fcf9fc
-      &.selected
+      &.sel
         background $selectedColor
         color white
-        position relative
-      &.sel--start
+      &.sel--start .calendar__inner-day
+      &.sel--start.dis .calendar__inner-day
         position relative
         color white
+        border-radius $height
+        border 2px solid $selectedColor
+        border-top-right-radius 0
+        border-bottom-right-radius 0
+        background $selectedColor
         &:after
           content ''
           display block
@@ -120,30 +124,24 @@ body
           background $selectedColor
           width 20px
           height $height
-          top 0
-          right 0
-        .calendar__inner-day
-          border-radius $height
-          border 2px solid $selectedColor
-          border-top-right-radius 0
-          border-bottom-right-radius 0
-          background $selectedColor
-      &.sel--end
-        position relative
-        &:before
-          content ''
-          display block
-          position absolute
-          background $selectedColor
-          width 30px
-          height $height
-          top 0
-          left 0
-          z-index -1
-        .calendar__inner-day
+          top -2px
+          right -10px
+      &.sel--end .calendar__inner-day
+      &.sel--end.dis .calendar__inner-day
+          position relative
           border-radius @height
           border 2px solid $selectedColor
           background white
+          &:before
+            content ''
+            display block
+            position absolute
+            background $selectedColor
+            width 30px
+            height $height
+            top -2px
+            left -10px
+            z-index -1
       &.out--range
         color #E3E3E3
       .calendar__inner-day
