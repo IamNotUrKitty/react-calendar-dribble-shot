@@ -73,8 +73,10 @@ export default class Calendar extends Component{
         let firstDay = date.getDay();
         if(firstDay !== 1){
             (firstDay == 0)?
-                date.setDate(date.getDate() - 7)
-                :date.setDate(date.getDate() - (firstDay - 2));
+                date.setDate(-6)
+                :date.setDate(1 - firstDay);
+        }else{
+            date.setDate(0);
         }
         return(<div className="calendar__wrap">
             <table className="calendar__table" ref="calendar" key={this.props.date} cellSpacing="0">
