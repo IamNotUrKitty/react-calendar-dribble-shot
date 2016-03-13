@@ -20,7 +20,7 @@ module.exports = {
         ]
     },
     plugins:[
-        new ExtractTextPlugin("public/style.css")
-        //new webpack.optimize.UglifyJsPlugin({minimize: true})
+        new ExtractTextPlugin("public/style.css"),
+        new webpack.optimize.UglifyJsPlugin({minimize: true})
     ]
 };

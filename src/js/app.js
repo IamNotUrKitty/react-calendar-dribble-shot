@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import RangePicker from './components/main'
+import React from 'react';
+import ReactDom from 'react-dom';
+import RangePicker from './components/main';
 require('../styles/style.styl');
 require('./utils/array.fill.js');
 
