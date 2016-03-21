@@ -47,7 +47,7 @@ export default class Calendar extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.date !== this.props.date) {
-      this.refs.calendar.classList.add(`animate--${this.animationDirection}`);
+      this.refs.calendar.className += `_animate-${this.animationDirection}`;
     }
   }
 
@@ -56,9 +56,9 @@ export default class Calendar extends Component {
     const currentDate = this.currentDate;
     const { indexEnd, indexStart } = this.props;
     let dayClass = (time > indexStart && time < indexEnd) ? 'sel' : '';
-    dayClass += ( date < currentDate.setHours(0)) ? ' out--range' : '';
-    dayClass += (time === indexStart && indexEnd > indexStart) ? ' sel--start' : '';
-    dayClass += (time === indexEnd && time > indexStart) ? ' sel--end' : '';
+    dayClass += ( date < currentDate.setHours(0)) ? ' out-range' : '';
+    dayClass += (time === indexStart && indexEnd > indexStart) ? ' sel-start' : '';
+    dayClass += (time === indexEnd && time > indexStart) ? ' sel-end' : '';
     dayClass += (date.getMonth() === month) ? ' calendar__day' : ' calendar__day dis';
     return (<td className={dayClass}
                 onClick={ this.handleClick.bind(this, time) }

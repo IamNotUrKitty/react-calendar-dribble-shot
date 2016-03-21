@@ -1,0 +1,75 @@
+.calendar
+  &__wrap
+    max-height 301px
+    overflow hidden
+    border-top 1px solid #efefef
+    border-bottom 1px solid #efefef
+  &__table
+    transform translate3d(0px, -(($height+1) * 4), 0px)
+    transition all .3s ease-in
+    cursor pointer
+    will-change transform
+    &_animate-forward
+      animation list-forward .3s forwards
+    &_animate-backward
+      animation list-backward .3s forwards
+  &__day
+    min-width $cellWidth
+    padding 0
+    text-align center
+    color #5D5D5D
+    border-bottom 1px solid white
+    &:hover
+      .calendar__inner-day
+        border-radius @height
+        border 2px solid $selectedColor
+    &.dis
+      background #fcf9fc
+      border-bottom 1px solid #fcf9fc
+    &.sel
+      background $selectedColor
+      color white
+    &.sel-start .calendar__inner-day
+    &.sel-start_dis .calendar__inner-day
+      position relative
+      color white
+      border-radius $height
+      border 2px solid $selectedColor
+      border-top-right-radius 0
+      border-bottom-right-radius 0
+      background $selectedColor
+      &:after
+        content ''
+        display block
+        position absolute
+        background $selectedColor
+        width 20px
+        height $height
+        top -2px
+        right -10px
+    &.sel-end .calendar__inner-day
+    &.sel-end_dis &.calendar__inner-day
+      position relative
+      border-radius @height
+      border 2px solid $selectedColor
+      background white
+      &:before
+        content ''
+        display block
+        position absolute
+        background $selectedColor
+        width 30px
+        height $height
+        top -2px
+        left -10px
+        z-index -1
+    &.out-range
+      color #E3E3E3
+  &__inner-day
+    height $height
+    width $height
+    line-height $height - 4
+    border-radius 100%
+    border 2px solid transparent
+    margin auto
+

@@ -16,141 +16,7 @@ body
 .calendar
   width 455px
   margin auto
-  .calendar__range
-    color #5d5d5d
-    margin-bottom 10px
-    .calendar__from-date
-      min-width 180px
-      vertical-align top
-      min-height 60px
-    .calendar__from-date
-    .calendar__image-arrow
-      display inline-block
-    .calendar__image-arrow
-      font-size 2.5rem
-      color #dbd7db
-      margin-right 30px
-      vertical-align middle
-    .calendar__range-h
-      font-size 0.75rem
-      text-transform uppercase
-    .calendar__range-month
-      font-size 1.1rem
-    .calendar__range-date
-      font-size 2.3rem
-      line-height @font-size
-      font-weight 100
-      margin 0 5px 0 -5px
-    .calendar__range-day
-      font-size 0.9rem
-      color #a2a2a2
-      font-weight 100
-    td
-      padding 0
-      line-height 1rem
-  .calendar__chooser
-    background #FFFDFF
-    text-align center
-  .calendar__header
-    text-align center
-    width @width
-    padding-top 13px
-    border-top 1px solid #efefef
-    margin-bottom 4px
-    .calendar__month-chooser
-      color #5d5d5d
-      font-size 1.1rem
-      margin-bottom 16px
-      width 455px
-      padding 0 30px
-      .calendar__prev-month
-        float left
-      .calendar__next-month
-        float right
-      .calendar__prev-month
-      .calendar__next-month
-        cursor pointer
-        color #a2a2a2
-        font-size 1.4rem
-        line-height @font-size
-  .calendar__days-names
-    color #a2a2a2
-    font-size 0.8rem
-    .calendar__day-name
-      min-width $cellWidth
-  .calendar__wrap
-    max-height 301px
-    overflow hidden
-    border-top 1px solid #efefef
-    border-bottom 1px solid #efefef
-  .calendar__table
-    transform translate3d(0px, -(($height+1) * 4), 0px)
-    transition all .3s ease-in
-    cursor pointer
-    will-change transform
-    &.animate--forward
-      animation list-forward .3s forwards
-    &.animate--backward
-      animation list-backward .3s forwards
-    .calendar__day
-      min-width $cellWidth
-      padding 0
-      text-align center
-      color #5D5D5D
-      border-bottom 1px solid white
-      &:hover
-        .calendar__inner-day
-          border-radius @height
-          border 2px solid $selectedColor
-      &.dis
-        background #fcf9fc
-        border-bottom 1px solid #fcf9fc
-      &.sel
-        background $selectedColor
-        color white
-      &.sel--start .calendar__inner-day
-      &.sel--start.dis .calendar__inner-day
-        position relative
-        color white
-        border-radius $height
-        border 2px solid $selectedColor
-        border-top-right-radius 0
-        border-bottom-right-radius 0
-        background $selectedColor
-        &:after
-          content ''
-          display block
-          position absolute
-          background $selectedColor
-          width 20px
-          height $height
-          top -2px
-          right -10px
-      &.sel--end .calendar__inner-day
-      &.sel--end.dis .calendar__inner-day
-          position relative
-          border-radius @height
-          border 2px solid $selectedColor
-          background white
-          &:before
-            content ''
-            display block
-            position absolute
-            background $selectedColor
-            width 30px
-            height $height
-            top -2px
-            left -10px
-            z-index -1
-      &.out--range
-        color #E3E3E3
-      .calendar__inner-day
-        height $height
-        width $height
-        line-height $height - 4
-        border-radius 100%
-        border 2px solid transparent
-        margin auto
+
 @keyframes list-forward {
   0%{
     transform translate3d(0px,0px,0px)
@@ -167,3 +33,9 @@ body
     transform translate3d(0px,0px,0px)
   }
 }
+
+@require 'range'
+@require 'header'
+@require 'calendar'
+
+
